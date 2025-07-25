@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -115,9 +115,9 @@ export default function Cart() {
             <Typography variant="h5" gutterBottom>
               Suggested for You
             </Typography>
-            <Grid container spacing={3} sx={{ mt: 1 }}>
+            <Grid spacing={3} sx={{ mt: 1 }}>
               {mockProducts.slice(0, 3).map((product) => (
-                <Grid item xs={12} sm={6} md={4} key={product.id}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={product.id}>
                   <Card sx={{ cursor: 'pointer' }} onClick={() => navigate(`/product/${product.id}`)}>
                     <CardMedia
                       component="img"
@@ -171,16 +171,16 @@ export default function Cart() {
         </Typography>
       </Box>
 
-      <Grid container spacing={3}>
+      <Grid spacing={3}>
         {/* Cart Items */}
-        <Grid item xs={12} md={8}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <Paper sx={{ p: 2 }}>
             {cartItems.map((item, index) => (
               <Box key={item.product.id}>
                 {index > 0 && <Divider sx={{ my: 2 }} />}
-                <Grid container spacing={2}>
+                <Grid spacing={2}>
                   {/* Product Image */}
-                  <Grid item xs={12} sm={3}>
+                  <Grid size={{ xs: 12, sm: 3 }}>
                     <Box
                       component="img"
                       src={item.product.images[0]}
@@ -197,7 +197,7 @@ export default function Cart() {
                   </Grid>
 
                   {/* Product Details */}
-                  <Grid item xs={12} sm={9}>
+                  <Grid size={{ xs: 12, sm: 9 }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                       <Box>
                         <Typography
@@ -282,7 +282,7 @@ export default function Cart() {
         </Grid>
 
         {/* Order Summary */}
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Paper sx={{ p: 3, position: 'sticky', top: 20 }}>
             <Typography variant="h5" gutterBottom>
               Order Summary

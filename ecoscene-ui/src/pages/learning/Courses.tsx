@@ -22,15 +22,12 @@ import {
   Tab,
   Badge,
   IconButton,
-  Tooltip,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import {
   Search as SearchIcon,
-  FilterList as FilterIcon,
   Schedule as ScheduleIcon,
   SignalCellularAlt as LevelIcon,
-  Person as PersonIcon,
   PlayCircleOutline as PlayIcon,
   BookmarkBorder as BookmarkIcon,
   Bookmark as BookmarkedIcon,
@@ -204,8 +201,8 @@ export default function Courses() {
       
       {/* Search and Filters */}
       <Box sx={{ mb: 4 }}>
-        <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} md={6}>
+        <Grid spacing={2} alignItems="center">
+          <Grid size={{ xs: 12, md: 6 }}>
             <TextField
               fullWidth
               placeholder="Search courses..."
@@ -220,7 +217,7 @@ export default function Courses() {
               }}
             />
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid size={{ xs: 12, md: 3 }}>
             <FormControl fullWidth>
               <InputLabel>Category</InputLabel>
               <Select
@@ -236,7 +233,7 @@ export default function Courses() {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid size={{ xs: 12, md: 3 }}>
             <FormControl fullWidth>
               <InputLabel>Level</InputLabel>
               <Select
@@ -270,7 +267,7 @@ export default function Courses() {
       
       {/* Tabs */}
       <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 4 }}>
-        <Tabs value={tabValue} onChange={(e, newValue) => setTabValue(newValue)}>
+        <Tabs value={tabValue} onChange={(_e, newValue) => setTabValue(newValue)}>
           <Tab label="All Courses" />
           <Tab 
             label={
@@ -289,9 +286,9 @@ export default function Courses() {
           <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
             {filteredCourses.length} courses found
           </Typography>
-          <Grid container spacing={3}>
+          <Grid spacing={3}>
             {filteredCourses.map((course) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={course.id}>
+              <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={course.id}>
                 <CourseCard course={course} />
               </Grid>
             ))}
@@ -304,9 +301,9 @@ export default function Courses() {
           <Typography variant="h5" gutterBottom sx={{ mb: 3 }}>
             My Enrolled Courses
           </Typography>
-          <Grid container spacing={3}>
+          <Grid spacing={3}>
             {enrolledCourses.map((course) => (
-              <Grid item xs={12} sm={6} md={4} key={course.id}>
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={course.id}>
                 <CourseCard course={course} isEnrolled />
               </Grid>
             ))}
@@ -319,9 +316,9 @@ export default function Courses() {
           <Typography variant="h5" gutterBottom sx={{ mb: 3 }}>
             Featured Courses
           </Typography>
-          <Grid container spacing={3}>
+          <Grid spacing={3}>
             {featuredCourses.map((course) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={course.id}>
+              <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={course.id}>
                 <CourseCard course={course} />
               </Grid>
             ))}

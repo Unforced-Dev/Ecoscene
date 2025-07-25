@@ -12,16 +12,11 @@ import {
   Card,
   CardContent,
   LinearProgress,
-  IconButton,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
   TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import {
@@ -86,14 +81,14 @@ export default function Profile() {
     <Box>
       {/* Profile Header */}
       <Paper sx={{ p: 3, mb: 3 }}>
-        <Grid container spacing={3} alignItems="center">
-          <Grid item xs={12} md={3}>
+        <Grid spacing={3} alignItems="center">
+          <Grid size={{ xs: 12, md: 3 }}>
             <Avatar
               src={profileUser.avatar}
               sx={{ width: 150, height: 150, margin: '0 auto' }}
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Typography variant="h4" gutterBottom>
               {profileUser.fullName}
             </Typography>
@@ -132,7 +127,7 @@ export default function Profile() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid size={{ xs: 12, md: 3 }}>
             {isOwnProfile ? (
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                 <Button
@@ -171,8 +166,8 @@ export default function Profile() {
         <Typography variant="h6" gutterBottom>
           Values & Personality
         </Typography>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={4}>
+        <Grid spacing={2}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Card variant="outlined">
               <CardContent>
                 <Typography variant="subtitle2" color="text.secondary" gutterBottom>
@@ -186,7 +181,7 @@ export default function Profile() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Card variant="outlined">
               <CardContent>
                 <Typography variant="subtitle2" color="text.secondary" gutterBottom>
@@ -196,7 +191,7 @@ export default function Profile() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Card variant="outlined">
               <CardContent>
                 <Typography variant="subtitle2" color="text.secondary" gutterBottom>
@@ -214,8 +209,8 @@ export default function Profile() {
         <Typography variant="h6" gutterBottom>
           Impact & Achievements
         </Typography>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={4}>
+        <Grid spacing={3}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <Avatar sx={{ bgcolor: 'success.main' }}>
                 <Nature />
@@ -228,7 +223,7 @@ export default function Profile() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <Avatar sx={{ bgcolor: 'primary.main' }}>
                 <Groups />
@@ -241,7 +236,7 @@ export default function Profile() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <Avatar sx={{ bgcolor: 'secondary.main' }}>
                 <School />
@@ -299,9 +294,9 @@ export default function Profile() {
         </TabPanel>
 
         <TabPanel value={tabValue} index={1}>
-          <Grid container spacing={2}>
+          <Grid spacing={2}>
             {profileUser.guilds.map((guild) => (
-              <Grid item xs={12} md={6} key={guild}>
+              <Grid size={{ xs: 12, md: 6 }} key={guild}>
                 <Card>
                   <CardContent>
                     <Typography variant="h6">{guild}</Typography>
@@ -316,8 +311,8 @@ export default function Profile() {
         </TabPanel>
 
         <TabPanel value={tabValue} index={2}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={4}>
+          <Grid spacing={2}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <Card>
                 <CardContent>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -14,12 +14,8 @@ import {
   Button,
   Avatar,
   Chip,
-  IconButton,
-  Badge,
-  Tooltip,
   Container,
   Paper,
-  Divider,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import {
@@ -28,7 +24,6 @@ import {
   Work as WorkIcon,
   LocationOn as LocationIcon,
   Add as AddIcon,
-  FilterList as FilterIcon,
   Category as CategoryIcon,
   Forest as EcoIcon,
   Group as GroupIcon,
@@ -36,7 +31,6 @@ import {
   Psychology as PsychologyIcon,
   School as SchoolIcon,
   LocalFlorist as LocalFloristIcon,
-  Water as WaterIcon,
   Favorite as FavoriteIcon,
 } from '@mui/icons-material';
 import { mockGuilds, mockUsers } from '../../mocks/data';
@@ -79,7 +73,7 @@ export default function Guilds() {
     navigate(`/guild/${guildId}`);
   };
 
-  const handleCategoryChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleCategoryChange = (_event: React.SyntheticEvent, newValue: string) => {
     setSelectedCategory(newValue);
   };
 
@@ -166,9 +160,9 @@ export default function Guilds() {
       </Box>
 
       {/* Guild Cards Grid */}
-      <Grid container spacing={3}>
+      <Grid spacing={3}>
         {filteredGuilds.map((guild) => (
-          <Grid item xs={12} sm={6} md={4} key={guild.id}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={guild.id}>
             <Card
               sx={{
                 height: '100%',

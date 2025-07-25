@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -12,18 +12,13 @@ import {
   Card,
   CardContent,
   CardMedia,
-  CardActions,
   Chip,
   IconButton,
-  Divider,
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
   TextField,
-  InputAdornment,
-  Badge,
-  Tooltip,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -39,7 +34,6 @@ import {
   CalendarMonth as CalendarIcon,
   Add as AddIcon,
   MoreVert as MoreVertIcon,
-  Edit as EditIcon,
   Share as ShareIcon,
   Settings as SettingsIcon,
   Forest as EcoIcon,
@@ -61,7 +55,6 @@ import {
   PersonAdd as PersonAddIcon,
 } from '@mui/icons-material';
 import { mockGuilds, mockUsers, mockPosts } from '../../mocks/data';
-import type { Post } from '../../mocks/data';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -87,7 +80,7 @@ function TabPanel(props: TabPanelProps) {
 
 export default function GuildDetail() {
   const { guildId } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [tabValue, setTabValue] = useState(0);
   const [isMember, setIsMember] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -124,7 +117,7 @@ export default function GuildDetail() {
     );
   }
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
   };
 
@@ -222,8 +215,8 @@ export default function GuildDetail() {
 
         {/* Guild Info */}
         <Box sx={{ p: 3 }}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={8}>
+          <Grid spacing={3}>
+            <Grid size={{ xs: 12, md: 8 }}>
               <Typography variant="body1" sx={{ mb: 2 }}>
                 {guild.description}
               </Typography>
@@ -236,7 +229,7 @@ export default function GuildDetail() {
                 ))}
               </Box>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                   <PeopleIcon color="action" />
@@ -288,8 +281,8 @@ export default function GuildDetail() {
       {/* Tab Panels */}
       <TabPanel value={tabValue} index={0}>
         {/* Feed Tab */}
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
+        <Grid spacing={3}>
+          <Grid size={{ xs: 12, md: 8 }}>
             {/* New Post */}
             {isMember && (
               <Card sx={{ mb: 3 }}>
@@ -376,7 +369,7 @@ export default function GuildDetail() {
             ))}
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             {/* Quick Stats */}
             <Card sx={{ mb: 3 }}>
               <CardContent>
@@ -444,16 +437,16 @@ export default function GuildDetail() {
 
       <TabPanel value={tabValue} index={1}>
         {/* Members Tab */}
-        <Grid container spacing={3}>
+        <Grid spacing={3}>
           {/* Managers */}
-          <Grid item xs={12}>
+          <Grid size={12}>
             <Typography variant="h6" sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
               <AdminIcon color="primary" />
               Guild Managers ({managers.length})
             </Typography>
-            <Grid container spacing={2}>
+            <Grid spacing={2}>
               {managers.map((member) => (
-                <Grid item xs={12} sm={6} md={4} key={member.id}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={member.id}>
                   <Card>
                     <CardContent>
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -480,14 +473,14 @@ export default function GuildDetail() {
           </Grid>
 
           {/* Voting Members */}
-          <Grid item xs={12}>
+          <Grid size={12}>
             <Typography variant="h6" sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
               <VoteIcon color="secondary" />
               Voting Members ({votingMembers.length})
             </Typography>
-            <Grid container spacing={2}>
+            <Grid spacing={2}>
               {votingMembers.map((member) => (
-                <Grid item xs={12} sm={6} md={4} key={member.id}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={member.id}>
                   <Card>
                     <CardContent>
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -514,7 +507,7 @@ export default function GuildDetail() {
           </Grid>
 
           {/* Regular Members */}
-          <Grid item xs={12}>
+          <Grid size={12}>
             <Typography variant="h6" sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
               <PeopleIcon />
               All Members ({guild.members})
@@ -546,8 +539,8 @@ export default function GuildDetail() {
 
       <TabPanel value={tabValue} index={3}>
         {/* Resources Tab */}
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6}>
+        <Grid spacing={3}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Card>
               <CardContent>
                 <Typography variant="h6" sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -582,7 +575,7 @@ export default function GuildDetail() {
             </Card>
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Card>
               <CardContent>
                 <Typography variant="h6" sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -621,8 +614,8 @@ export default function GuildDetail() {
 
       <TabPanel value={tabValue} index={4}>
         {/* About Tab */}
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
+        <Grid spacing={3}>
+          <Grid size={{ xs: 12, md: 8 }}>
             <Card>
               <CardContent>
                 <Typography variant="h6" sx={{ mb: 2 }}>
@@ -649,7 +642,7 @@ export default function GuildDetail() {
             </Card>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Card>
               <CardContent>
                 <Typography variant="h6" sx={{ mb: 2 }}>

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import {
   Box,
   Container,
@@ -35,7 +35,6 @@ import {
   FilterList as FilterListIcon,
   ShoppingCart as ShoppingCartIcon,
   Forest as EcoIcon,
-  LocalOffer as LocalOfferIcon,
   Star as StarIcon,
   TrendingUp as TrendingUpIcon,
   Nature as NatureIcon,
@@ -119,7 +118,7 @@ export default function Marketplace() {
     );
   };
 
-  const handlePriceChange = (event: Event, newValue: number | number[]) => {
+  const handlePriceChange = (_event: Event, newValue: number | number[]) => {
     setPriceRange(newValue as number[]);
   };
 
@@ -360,9 +359,9 @@ export default function Marketplace() {
           <StarIcon color="primary" />
           Featured Products
         </Typography>
-        <Grid container spacing={3}>
+        <Grid spacing={3}>
           {sortedProducts.slice(0, 3).map(product => (
-            <Grid item xs={12} sm={6} md={4} key={product.id}>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={product.id}>
               <ProductCard product={product} />
             </Grid>
           ))}
@@ -372,10 +371,10 @@ export default function Marketplace() {
       <Divider sx={{ mb: 4 }} />
 
       {/* Main Content */}
-      <Grid container spacing={3}>
+      <Grid spacing={3}>
         {/* Sidebar Filters - Desktop */}
         {!isMobile && (
-          <Grid item md={3}>
+          <Grid size={{ md: 3 }}>
             <Paper elevation={0} sx={{ position: 'sticky', top: 80 }}>
               <FiltersContent />
             </Paper>
@@ -383,7 +382,7 @@ export default function Marketplace() {
         )}
 
         {/* Product Grid */}
-        <Grid item xs={12} md={9}>
+        <Grid size={{ xs: 12, md: 9 }}>
           <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography variant="body1" color="text.secondary">
               {sortedProducts.length} products found
@@ -406,9 +405,9 @@ export default function Marketplace() {
             )}
           </Box>
 
-          <Grid container spacing={3}>
+          <Grid spacing={3}>
             {sortedProducts.map(product => (
-              <Grid item xs={12} sm={6} lg={4} key={product.id}>
+              <Grid size={{ xs: 12, sm: 6, lg: 4 }} key={product.id}>
                 <ProductCard product={product} />
               </Grid>
             ))}

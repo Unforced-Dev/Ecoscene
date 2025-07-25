@@ -14,7 +14,6 @@ import {
   ListItem,
   ListItemText,
   IconButton,
-  TextField,
   Select,
   MenuItem,
   FormControl,
@@ -108,9 +107,9 @@ export default function Product() {
         <Typography color="text.primary">{product.name}</Typography>
       </Breadcrumbs>
 
-      <Grid container spacing={3}>
+      <Grid spacing={3}>
         {/* Product Images */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Paper sx={{ p: 2 }}>
             <Box sx={{ mb: 2 }}>
               <img
@@ -151,7 +150,7 @@ export default function Product() {
         </Grid>
 
         {/* Product Info */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Box sx={{ mb: 2 }}>
             <Typography variant="h4" gutterBottom>
               {product.name}
@@ -243,8 +242,8 @@ export default function Product() {
               <Typography variant="h6" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <EcoOutlined /> Environmental Impact
               </Typography>
-              <Grid container spacing={2}>
-                <Grid item xs={6}>
+              <Grid spacing={2}>
+                <Grid size={{ xs: 6 }}>
                   <Typography variant="body2" color="text.secondary">
                     Biodiversity Score
                   </Typography>
@@ -252,7 +251,7 @@ export default function Product() {
                     {product.impact.biodiversityScore}/10
                   </Typography>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid size={{ xs: 6 }}>
                   <Typography variant="body2" color="text.secondary">
                     Carbon Footprint
                   </Typography>
@@ -260,7 +259,7 @@ export default function Product() {
                     {product.impact.carbonFootprint > 0 ? '+' : ''}{product.impact.carbonFootprint} kg CO₂
                   </Typography>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <Typography variant="body2" color="text.secondary">
                     Community Benefit
                   </Typography>

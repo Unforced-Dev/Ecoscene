@@ -24,7 +24,6 @@ import {
   LinearProgress,
   Paper,
   IconButton,
-  Tooltip,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import {
@@ -34,20 +33,17 @@ import {
   CheckCircle as CheckIcon,
   PlayCircleOutline as PlayIcon,
   ExpandMore as ExpandMoreIcon,
-  Person as PersonIcon,
   Star as StarIcon,
-  Group as GroupIcon,
   BookmarkBorder as BookmarkIcon,
   Bookmark as BookmarkedIcon,
   Share as ShareIcon,
   ThumbUp as ThumbUpIcon,
-  LocalOffer as PriceIcon,
   AssignmentTurnedIn as CertificateIcon,
   Article as ArticleIcon,
   Quiz as QuizIcon,
   OndemandVideo as VideoIcon,
 } from '@mui/icons-material';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { mockCourses } from '../../mocks/data';
 
 interface TabPanelProps {
@@ -74,7 +70,6 @@ function TabPanel(props: TabPanelProps) {
 
 export default function CourseDetail() {
   const { courseId } = useParams();
-  const navigate = useNavigate();
   const [tabValue, setTabValue] = useState(0);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [expandedModule, setExpandedModule] = useState<string | false>(false);
@@ -146,7 +141,7 @@ export default function CourseDetail() {
     },
   ];
 
-  const handleModuleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+  const handleModuleChange = (panel: string) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpandedModule(isExpanded ? panel : false);
   };
 
@@ -170,8 +165,8 @@ export default function CourseDetail() {
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
       {/* Course Header */}
-      <Grid container spacing={4} sx={{ mb: 4 }}>
-        <Grid item xs={12} md={8}>
+      <Grid spacing={4} sx={{ mb: 4 }}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <Box sx={{ mb: 3 }}>
             <Typography variant="h3" gutterBottom>
               {course.title}
@@ -216,7 +211,7 @@ export default function CourseDetail() {
           </Box>
         </Grid>
         
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card sx={{ position: 'sticky', top: 80 }}>
             <CardMedia
               component="img"
@@ -278,7 +273,7 @@ export default function CourseDetail() {
       
       {/* Course Content Tabs */}
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={tabValue} onChange={(e, newValue) => setTabValue(newValue)}>
+        <Tabs value={tabValue} onChange={(_e, newValue) => setTabValue(newValue)}>
           <Tab label="Overview" />
           <Tab label="Curriculum" />
           <Tab label="Instructor" />
@@ -288,12 +283,12 @@ export default function CourseDetail() {
       
       {/* Overview Tab */}
       <TabPanel value={tabValue} index={0}>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={8}>
+        <Grid spacing={4}>
+          <Grid size={{ xs: 12, md: 8 }}>
             <Typography variant="h5" gutterBottom>
               What you'll learn
             </Typography>
-            <Grid container spacing={2} sx={{ mb: 4 }}>
+            <Grid spacing={2} sx={{ mb: 4 }}>
               {[
                 'Implement sustainable farming practices to increase yield',
                 'Understand soil health and management techniques',
@@ -302,7 +297,7 @@ export default function CourseDetail() {
                 'Create crop rotation plans for maximum productivity',
                 'Build and maintain composting systems',
               ].map((outcome, index) => (
-                <Grid item xs={12} sm={6} key={index}>
+                <Grid size={{ xs: 12, sm: 6 }} key={index}>
                   <Stack direction="row" spacing={1}>
                     <CheckIcon color="success" />
                     <Typography variant="body1">{outcome}</Typography>
@@ -353,7 +348,7 @@ export default function CourseDetail() {
             </Typography>
           </Grid>
           
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Paper sx={{ p: 3 }}>
               <Typography variant="h6" gutterBottom>
                 Course Statistics
@@ -427,9 +422,10 @@ export default function CourseDetail() {
                   <React.Fragment key={lesson.id}>
                     {index > 0 && <Divider />}
                     <ListItem
-                      button
                       sx={{
                         bgcolor: lesson.completed ? 'action.selected' : 'transparent',
+                        cursor: 'pointer',
+                        '&:hover': { bgcolor: 'action.hover' },
                       }}
                     >
                       <ListItemIcon>
@@ -457,8 +453,8 @@ export default function CourseDetail() {
       
       {/* Instructor Tab */}
       <TabPanel value={tabValue} index={2}>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
+        <Grid spacing={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Stack alignItems="center" spacing={2}>
               <Avatar
                 src={course.instructor.avatar}
@@ -495,7 +491,7 @@ export default function CourseDetail() {
             </Stack>
           </Grid>
           
-          <Grid item xs={12} md={8}>
+          <Grid size={{ xs: 12, md: 8 }}>
             <Typography variant="h6" gutterBottom>
               About the Instructor
             </Typography>
@@ -527,8 +523,8 @@ export default function CourseDetail() {
           <Typography variant="h5" gutterBottom>
             Student Reviews
           </Typography>
-          <Grid container spacing={4} alignItems="center" sx={{ mb: 4 }}>
-            <Grid item xs={12} md={3}>
+          <Grid spacing={4} alignItems="center" sx={{ mb: 4 }}>
+            <Grid size={{ xs: 12, md: 3 }}>
               <Stack alignItems="center">
                 <Typography variant="h2" color="primary">
                   {course.rating}
@@ -539,7 +535,7 @@ export default function CourseDetail() {
                 </Typography>
               </Stack>
             </Grid>
-            <Grid item xs={12} md={9}>
+            <Grid size={{ xs: 12, md: 9 }}>
               <Stack spacing={1}>
                 {[5, 4, 3, 2, 1].map((stars) => (
                   <Stack key={stars} direction="row" alignItems="center" spacing={2}>

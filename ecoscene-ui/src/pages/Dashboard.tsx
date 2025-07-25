@@ -62,16 +62,16 @@ export default function Dashboard() {
         Welcome back, {user.fullName}!
       </Typography>
       
-      <Grid container spacing={3}>
+      <Grid spacing={3}>
         {/* Stats Cards */}
         {stats.map((stat, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
             <StatCard {...stat} />
           </Grid>
         ))}
 
         {/* Wallet Overview */}
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Paper sx={{ p: 3, height: '100%' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
               <Typography variant="h6">Wallet Overview</Typography>
@@ -100,7 +100,7 @@ export default function Dashboard() {
         </Grid>
 
         {/* Recent Activity */}
-        <Grid item xs={12} md={8}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <Paper sx={{ p: 3, height: '100%' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
               <Typography variant="h6">Recent Activity</Typography>
@@ -137,7 +137,7 @@ export default function Dashboard() {
         </Grid>
 
         {/* Active Guilds */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Paper sx={{ p: 3 }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
               <Typography variant="h6">Your Guilds</Typography>
@@ -161,7 +161,7 @@ export default function Dashboard() {
         </Grid>
 
         {/* Achievements */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Paper sx={{ p: 3 }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
               <Typography variant="h6">Recent Achievements</Typography>
@@ -210,7 +210,7 @@ export default function Dashboard() {
         </Grid>
 
         {/* Suggested Connections */}
-        <Grid item xs={12}>
+        <Grid size={12}>
           <Paper sx={{ p: 3 }}>
             <Typography variant="h6" gutterBottom>
               Suggested Connections

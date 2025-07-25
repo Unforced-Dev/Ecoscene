@@ -34,10 +34,7 @@ import {
   Send,
   CallReceived,
   SwapHoriz,
-  History,
   Info,
-  TrendingUp,
-  TrendingDown,
   Nature,
   Favorite,
   Star,
@@ -233,14 +230,14 @@ export default function Wallet() {
           </Box>
         </Box>
 
-        <Grid container spacing={3}>
+        <Grid spacing={3}>
           {Object.entries(currencyInfo).map(([key, info]) => {
             const currency = key as 'V' | 'Y' | 'Q';
             const balance = user.currencies[currency];
             const percentOfMax = (balance / 5000) * 100;
 
             return (
-              <Grid item xs={12} md={4} key={currency}>
+              <Grid size={{ xs: 12, md: 4 }} key={currency}>
                 <Card>
                   <CardContent>
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
@@ -455,8 +452,8 @@ export default function Wallet() {
             Exchange rates are based on current market values. A 2% fee applies to all exchanges.
           </Alert>
           
-          <Grid container spacing={2}>
-            <Grid item xs={5}>
+          <Grid spacing={2}>
+            <Grid size={{ xs: 5 }}>
               <FormControl fullWidth>
                 <InputLabel>From</InputLabel>
                 <Select
@@ -470,10 +467,10 @@ export default function Wallet() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={2} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Grid size={{ xs: 2 }} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <SwapHoriz />
             </Grid>
-            <Grid item xs={5}>
+            <Grid size={{ xs: 5 }}>
               <FormControl fullWidth>
                 <InputLabel>To</InputLabel>
                 <Select

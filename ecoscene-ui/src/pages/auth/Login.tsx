@@ -107,13 +107,13 @@ export default function Login() {
         Sign In
       </Button>
       
-      <Grid container>
-        <Grid item xs>
+      <Grid spacing={2}>
+        <Grid size="grow">
           <MuiLink href="#" variant="body2">
             Forgot password?
           </MuiLink>
         </Grid>
-        <Grid item>
+        <Grid size="auto">
           <MuiLink component={Link} to="/register" variant="body2">
             {"Don't have an account? Sign Up"}
           </MuiLink>

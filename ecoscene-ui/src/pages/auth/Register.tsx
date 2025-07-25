@@ -77,8 +77,8 @@ export default function Register() {
       case 0:
         return (
           <Box>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+            <Grid spacing={2}>
+              <Grid size={{ xs: 12, sm: 6 }}>
                 <TextField
                   required
                   fullWidth
@@ -87,7 +87,7 @@ export default function Register() {
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid size={{ xs: 12, sm: 6 }}>
                 <TextField
                   required
                   fullWidth
@@ -96,7 +96,7 @@ export default function Register() {
                   onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   required
                   fullWidth
@@ -106,7 +106,7 @@ export default function Register() {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   required
                   fullWidth
@@ -116,7 +116,7 @@ export default function Register() {
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   required
                   fullWidth
@@ -126,7 +126,7 @@ export default function Register() {
                   onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   fullWidth
                   label="Location"
@@ -145,8 +145,8 @@ export default function Register() {
             <Typography variant="h6" gutterBottom>
               Your Values & Personality
             </Typography>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
+            <Grid spacing={3}>
+              <Grid size={12}>
                 <FormControl fullWidth>
                   <InputLabel>Gene Keys (Select up to 3)</InputLabel>
                   <Select
@@ -175,7 +175,7 @@ export default function Register() {
                 </FormControl>
               </Grid>
               
-              <Grid item xs={12} sm={6}>
+              <Grid size={{ xs: 12, sm: 6 }}>
                 <FormControl fullWidth>
                   <InputLabel>Human Design Type</InputLabel>
                   <Select
@@ -191,7 +191,7 @@ export default function Register() {
                 </FormControl>
               </Grid>
               
-              <Grid item xs={12} sm={6}>
+              <Grid size={{ xs: 12, sm: 6 }}>
                 <FormControl fullWidth>
                   <InputLabel>Enneagram Type</InputLabel>
                   <Select
@@ -207,7 +207,7 @@ export default function Register() {
                 </FormControl>
               </Grid>
               
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Typography variant="subtitle1" gutterBottom>
                   Select Your Interests
                 </Typography>
@@ -238,7 +238,7 @@ export default function Register() {
             <Typography variant="h6" gutterBottom>
               Complete Your Profile
             </Typography>
-            <Grid container spacing={3}>
+            <Grid spacing={3}>
               <Grid size={12} sx={{ textAlign: 'center' }}>
                 <Avatar
                   sx={{ width: 100, height: 100, margin: '0 auto', mb: 2 }}
@@ -253,7 +253,7 @@ export default function Register() {
                 </Typography>
               </Grid>
               
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   fullWidth
                   multiline
@@ -265,7 +265,7 @@ export default function Register() {
                 />
               </Grid>
               
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Typography variant="body2" color="text.secondary">
                   By creating an account, you agree to ECOSCENE's values of kindness, respect, and regenerative stewardship.
                 </Typography>
